@@ -1,0 +1,163 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+kbd {
+    display: inline-block;
+    height: 69px;
+    width: 72px;
+    line-height: 69px;
+    color: white;
+    font-size: 24px;
+    border-radius: 8px;
+    font-family: Helvetica;
+    margin: 0 12px 12px 0;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    background-color: #000;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    position: relative;
+    float: left;
+}
+
+button {
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+kbd:hover>button {
+    display: inline-block;
+}
+
+kbd img {
+    position: absolute;
+    left: 5px;
+    bottom: 8px;
+    width: 16px;
+    height: 16px;
+}
+
+.q,
+.w,
+.e,
+.r,
+.t,
+.y,
+.u,
+.i,
+.o,
+.p,
+.a,
+.s,
+.d,
+.f,
+.g,
+.h,
+.j,
+.k,
+.l,
+.z,
+.x,
+.c,
+.v,
+.b,
+.n,
+.m {
+    text-transform: uppercase;
+}
+
+#app {
+    background: url("../img/alum.png");
+    background-size: cover;
+    width: 1245px;
+    height: 100vh;
+    padding: 75px 0 0 30px;
+}
+
+.esc {
+    width: 72px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 20px;
+}
+
+.F1,
+.F2,
+.F3,
+.F4,
+.F5,
+.F6,
+.F7,
+.F8,
+.F9,
+.F10,
+.F11,
+.F12,
+.shut {
+    width: 74.25px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 20px;
+}
+
+.delete,
+.tab {
+    width: 103px;
+    font-size: 20px;
+}
+
+.capslock,
+.enter {
+    width: 129.5px;
+    font-size: 20px;
+}
+
+.shift {
+    width: 171.5px;
+    font-size: 20px;
+}
+
+.fn,
+.control,
+.option {
+    font-size: 20px;
+}
+
+.command {
+    width: 101px;
+    font-size: 18px;
+}
+
+.nb {
+    width: 394px;
+    color: black;
+}
+
+.↑,
+.↓,
+.←,
+.→ {
+    height: 32px;
+    line-height: 38px;
+    margin: 0 5px 3px 0;
+    font-size: 20px;
+}
+
+.↑ {
+    margin: 0 77px 2px;
+    border-radius: 8px 8px 0 0;
+}
+
+.↓ {
+    border-radius: 0 0 8px 8px;
+}
+
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
