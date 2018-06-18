@@ -1,6 +1,11 @@
 let gitin = init()
 let keys = gitin['keys']
 let hash = gitin['hash']
+
+generateKeyborad(keys, hash)
+monitorKeyboary(hash);
+
+
 function init() {
     let keys = {
         '0': ['esc', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12', 'shut'],
@@ -19,14 +24,14 @@ function init() {
         'r': 'lol.qq.com',
         't': 'taobao.com',
         'y': 'yamaxun.com',
-        'u': '',
+        'u': 'youku.com',
         'i': 'iqiyi.com',
-        'o': '',
+        'o': 'y.qq.com',
         'p': 'tianyi.com',
         'a': 'amazon.cn',
         's': '',
         'd': 'douban.com',
-        'f': '',
+        'f': 'fackbook.com',
         'g': 'ganji.com',
         'h': 'hexun.com',
         'j': 'jd.com',
@@ -52,40 +57,42 @@ function init() {
 }
 
 
-for (let i = 0; i < keys.length; i++) {
-    let div = tag('div')
-    app.appendChild(div)
-    let row = keys[i]
-    for (let i = 0; i < row.length; i++) {
-        let kbd = tag('kbd')
-        let button = tag('button')
-        let img = createImage(hash[row[i]])
-        
 
-        
-        kbd.classList = row[i]
-        kbd.innerText = row[i]
-        button.innerText = '编辑'
-        button.id = row[i]
-        button.onclick = (e) => {
-            let key = e.target.id
-            let enterUrl = prompt('给我一个新网址')
-            let img2 = e.target.previousSibling
-            img2.src = 'http:/' + enterUrl + '/favicon.ico'
-            img2.onerror = function (e) {
-                e.target.src = 'http://pa3otstvm.bkt.clouddn.com/18-6-17/18751353.jpg'
-            }
-            hash[key] = enterUrl
-            localStorage.setItem('key', JSON.stringify(hash))
-
-
+function generateKeyborad(keys, hash) {
+    for (let i = 0; i < keys.length; i++) {
+        let div = tag('div')
+        app.appendChild(div)
+        let row = keys[i]
+        for (let i = 0; i < row.length; i++) {
+            let kbd = tag('kbd')
+            let button = createButton(row[i])
+            let img = createImage(hash[row[i]])
+            kbd.classList = row[i]
+            kbd.innerText = row[i]
+            kbd.appendChild(img)
+            kbd.appendChild(button)
+            div.appendChild(kbd)
         }
-        kbd.appendChild(img)
-        kbd.appendChild(button)
-        div.appendChild(kbd)
-
-
     }
+}
+
+
+function createButton(id) {
+    let button = tag('button')
+    button.innerText = '编辑'
+    button.id = id
+    button.onclick = (e) => {
+        let key = e.target.id
+        let enterUrl = prompt('给我一个新网址')
+        let img2 = e.target.previousSibling
+        img2.src = 'http:/' + enterUrl + '/favicon.ico'
+        img2.onerror = function (e) {
+            e.target.src = 'http://pa3otstvm.bkt.clouddn.com/18-6-17/18751353.jpg'
+        }
+        hash[key] = enterUrl
+        localStorage.setItem('key', JSON.stringify(hash))
+    }
+    return button
 }
 
 
@@ -105,8 +112,11 @@ function createImage(down) {
     }
     return img
 }
-document.onkeypress = (e) => {
-    let key = e.key
-    let websit = hash[key]
-    window.open('http://' + websit, '_blank')
+
+function monitorKeyboary(hash) {
+    document.onkeypress = (e) => {
+        let key = e.key
+        let websit = hash[key]
+        window.open('http://' + websit, '_blank')
+    }
 }
